@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTechnologyRequest;
 use App\Http\Requests\UpdateTechnologyRequest;
 use App\Models\Technology;
+use Illuminate\Support\Str;
 
 class TechnologyController extends Controller
 {
@@ -15,7 +17,8 @@ class TechnologyController extends Controller
      */
     public function index()
     {
-        //
+        $technologies = Technology::all();
+        return view('admin.technology.index', compact('technologies'));
     }
 
     /**
@@ -25,7 +28,7 @@ class TechnologyController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.technology.create');
     }
 
     /**
@@ -36,7 +39,11 @@ class TechnologyController extends Controller
      */
     public function store(StoreTechnologyRequest $request)
     {
-        //
+        $newTechnology = new Technology();
+        $newTechnology->fill($request->validated());
+        $newTechnology->slug = Str::slug($newTechnology->technology);
+        $newTechnology->save();
+        return to_route('admin.technologies.index');
     }
 
     /**
@@ -47,7 +54,7 @@ class TechnologyController extends Controller
      */
     public function show(Technology $technology)
     {
-        //
+        return view('admin.technology.show', compact('technology'));
     }
 
     /**
@@ -58,7 +65,7 @@ class TechnologyController extends Controller
      */
     public function edit(Technology $technology)
     {
-        //
+        return view('admin.technology.edit', compact('technology'));
     }
 
     /**
@@ -70,7 +77,11 @@ class TechnologyController extends Controller
      */
     public function update(UpdateTechnologyRequest $request, Technology $technology)
     {
-        //
+        $data = $request->validated();
+        $technology->slug = Str::slug($technology->technology);
+        $technology->update($data);
+
+        return to_route('admin.technologies.index');
     }
 
     /**
@@ -81,6 +92,10 @@ class TechnologyController extends Controller
      */
     public function destroy(Technology $technology)
     {
-        //
+        // Schema::disableForeignKeyConstraints();
+        $technology->delete();
+        // $technology->projects->type_id = null;
+        // Schema::enableForeignKeyConstraints();
+        return to_route('admin.technologies.index');
     }
 }

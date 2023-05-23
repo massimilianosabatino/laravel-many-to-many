@@ -92,7 +92,6 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        // dd($type->projects);
         Schema::disableForeignKeyConstraints();
         $type->delete();
         $type->projects->type_id = null;

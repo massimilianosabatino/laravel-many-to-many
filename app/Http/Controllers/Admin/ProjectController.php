@@ -78,7 +78,9 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $types = Type::all();
-        return view('admin.project.edit', compact('project', 'types'));
+        $technologies = Technology::all();
+
+        return view('admin.project.edit', compact('project', 'types', 'technologies'));
     }
 
     /**
@@ -102,6 +104,8 @@ class ProjectController extends Controller
             }
             $data['cover'] = Storage::put('uploads', $request['cover-upload']);
         }
+
+        $project->technologies()->sync($request['technologies'] ?: []);
 
         $project->update($data);
         $project->private = isset($request['private']);

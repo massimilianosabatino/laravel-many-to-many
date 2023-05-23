@@ -35,7 +35,8 @@ class UpdateProjectRequest extends FormRequest
             'link' => 'url|nullable',
             'client' => 'string|nullable',
             'private' => 'boolean',
-            'cover-upload' => 'image|nullable'
+            'cover-upload' => 'image|nullable',
+            'technologies' => 'exists:technologies,id|nullable'
         ];
     }
 }

@@ -28,7 +28,7 @@
                     <button type="submit" class="btn btn-primary col-auto mx-2">Submit</button>
                     <button type="reset" class="btn btn-info col-auto mx-1">Reset</button>
                     <div class="col-auto ms-auto">
-                        <a href="{{ route('admin.technologies.index') }}" class="btn btn-secondary">Back</a>
+                        <a href="{{ route('admin.technologies.index') }}" class="btn btn-secondary">Back to technologies</a>
                     </div>
                 </div>
             </form>

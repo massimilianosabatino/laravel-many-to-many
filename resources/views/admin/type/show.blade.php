@@ -8,7 +8,7 @@
             
             <h1>{{ $type->category }}</h1>
             <p>ID categorya: {{ $type->id }}</p>
-                <a href="{{ route('admin.types.index') }}" class="btn btn-secondary">Back</a>
+                <a href="{{ route('admin.types.index') }}" class="btn btn-secondary">Back to types</a>
         </div>
     </div>
 </div>

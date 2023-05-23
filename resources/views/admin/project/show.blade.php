@@ -22,7 +22,7 @@
                 @endforeach
             </div>
             @endif
-                <a href="{{ route('admin.projects.index') }}" class="btn btn-secondary">Back</a>
+                <a href="{{ route('admin.projects.index') }}" class="btn btn-secondary">Back to projects</a>
         </div>
     </div>
 </div>

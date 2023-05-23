@@ -8,7 +8,7 @@
             
             <h1>{{ $technology->technology }}</h1>
             <p>ID categorya: {{ $technology->id }}</p>
-                <a href="{{ route('admin.technologies.index') }}" class="btn btn-secondary">Back</a>
+                <a href="{{ route('admin.technologies.index') }}" class="btn btn-secondary">Back to technologies</a>
         </div>
     </div>
 </div>

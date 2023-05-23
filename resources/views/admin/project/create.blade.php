@@ -44,6 +44,15 @@
                       </select>
                       <label for="category">Select category</label>
                 </div>
+                <div class=" mb-3">
+                    <div>Select techonologies</div>
+                    @foreach ($technologies as $technology)
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="technologies-{{ $loop->iteration }}" value="{{ $technology->id }}" {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }} name="technologies[]">
+                            <label class="form-check-label" for="technologies-{{ $loop->iteration }}">{{ $technology->technology }}</label>
+                        </div>
+                    @endforeach
+                </div>
                 <div class="form-floating mb-3">
                     <input type="url" class="form-control" id="link" name="link" value="{{ old('link') }}">
                     <label for="link" class="form-label">Project external link</label>

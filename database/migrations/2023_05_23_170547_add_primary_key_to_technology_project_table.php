@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('technology_project', function (Blueprint $table) {
-            $table->primary(['project_id', 'technology_id']);
-            $table->index(['project_id', 'technology_id']);
+        Schema::table('project_technology', function (Blueprint $table) {
+            $table->primary(['technology_id', 'project_id']);
+            $table->index(['technology_id', 'project_id']);
         });
     }
 
@@ -26,9 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('technology_project', function (Blueprint $table) {
+        Schema::table('project_technology', function (Blueprint $table) {
             
-            $table->dropPrimary(['project_id', 'technology_id']);
+            $table->dropPrimary(['technology_id', 'project_id']);
         });
     }
 };

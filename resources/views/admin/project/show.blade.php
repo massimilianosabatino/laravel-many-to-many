@@ -11,6 +11,15 @@
             <div>
                 Category: {{ Str::ucfirst($project->type?->category) ?: 'Nessuna categoria' }}
             </div>
+            
+            @if(count($project->technologies) > 0)
+            <div>
+                Technologies:
+                @foreach ($project->technologies as $technology)
+                {{ Str::ucfirst($technology->technology) }}
+                @endforeach
+            </div>
+            @endif
                 <a href="{{ route('admin.projects.index') }}" class="btn btn-secondary">Back</a>
         </div>
     </div>

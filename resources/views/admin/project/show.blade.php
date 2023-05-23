@@ -16,7 +16,9 @@
             <div>
                 Technologies:
                 @foreach ($project->technologies as $technology)
-                {{ Str::ucfirst($technology->technology) }}
+                <a href="{{ route('admin.technologies.show', $technology->id) }}" class="text-decoration-none">
+                    {{ Str::ucfirst($technology->technology) }}
+                </a>
                 @endforeach
             </div>
             @endif

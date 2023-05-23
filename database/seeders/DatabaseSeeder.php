@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([TypeSeeder::class, ProjectSeeder::class]);
+        $this->call([TypeSeeder::class, ProjectSeeder::class, TechnologySeeder::class]);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

@@ -50,12 +50,29 @@
                             <a href="{{ route('admin.projects.create') }}" class="btn btn-light">Aggiungi progetto</a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Categorie e sottocategorie</div>
+                <div class="card-body d-flex">
                     <div class="col-6 text-center d-flex">
                         <div class="col-6">
                             <a href="{{ route('admin.types.index') }}" class="btn btn-light">Gestione categorie</a>
                         </div>
                         <div class="col-6">
                             <a href="{{ route('admin.types.create') }}" class="btn btn-light">Aggiungi categoria</a>
+                        </div>
+                    </div>
+                    <div class="col-6 text-center d-flex">
+                        <div class="col-6">
+                            <a href="{{ route('admin.technologies.index') }}" class="btn btn-light">Gestione technologie</a>
+                        </div>
+                        <div class="col-6">
+                            <a href="{{ route('admin.technologies.create') }}" class="btn btn-light">Aggiungi technologia</a>
                         </div>
                     </div>
                 </div>
